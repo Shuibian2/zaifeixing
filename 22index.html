@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world</title>
+    <meta name="Make the world a better pacle" content="Initial progress" />
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("lalala.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #shurukuang {
+            border: 0;
+            border-bottom: 2px solid#fff;
+            padding: 4px 2px;
+            display: block;
+            background: 0;
+            line-height: 1.5;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.2s ease-in-out;
+            border-radius: 0;
+            color: #fff;
+            font-size: 2rem;
+            max-width: 90%;
+        }
+
+        #anniu {
+            margin-left: -50px;
+            margin-right: 10px;
+            color: #fff;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #fff;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #fff;
+        }
+    </style>
+</head>
+
+
+<div class="box">
+    <input placeholder="再飞行" id="shurukuang" />
+    <span id="anniu" onclick="change()">√</span>
+</div>
+<script>
+    let youshi = false;
+    function change() {
+        let anniu = document.getElementById("anniu")
+        let shurukuang = document.getElementById("shurukuang")
+        if (youshi) {
+            youshi = false;
+            anniu.innerText = "√"
+            shurukuang.style.borderBlockColor = "#fff"
+            shurukuang.value = "";
+            shurukuang.readonlu = false;
+        }
+        else {
+            youshi = true;
+            anniu.innerText = "×"
+            shurukuang.style.borderBottomColor = "transparent";
+            shurukuang.readonly = true;
+        }
+    }
+
+
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url("lalala.jpg");
+    }
+
+    .heart {
+        position: fixed;
+        pointer-events: none;
+        color: #ff4c91;
+        font-size: 24px;
+        animation: heartFall 1s ease-out forwards;
+    }
+
+    @keyframes heartFall {
+        0% {
+            transform: scale(0);
+            opacity: 1;
+        }
+
+        50% {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: scale(1) translateY(100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+
+
+<body>
+    <script>
+        // 监听页面点击事件
+        document.addEventListener('click', (e) => {
+            // 创建爱心元素
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerText = '❤';
+
+            // 定位到点击位置
+            heart.style.left = `${e.clientX - 12}px`;
+            heart.style.top = `${e.clientY - 12}px`;
+
+            // 随机颜色（可选）
+            const colors = ['#ff4c91', '#ff6b6b', '#ffb86c', '#50fa7b', '#8be9fd'];
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+            // 添加到页面
+            document.body.appendChild(heart);
+
+            // 动画结束后移除元素
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
+    </script>
+
+
+
+</body>
+
+</html>
